@@ -20,7 +20,7 @@
 <a class="skip-link" href="#main">Перейти к содержимому</a>
 <header class="header wrap">
   <a class="brand" href="#" aria-label="АросПро, главная"><svg width="35" height="29" viewBox="0 0 35 29" aria-hidden="true"><path d="M2 26 15 3h5l13 23h-7l-8.5-16L9 26Z" fill="currentColor"/><path d="M12 21h11" stroke="#d84b26" stroke-width="4"/></svg><span>АросПро</span></a>
-  <nav aria-label="Главная навигация"><a href="#product">Продукт</a><a href="#progress">Что уже есть</a><a href="#pilot">Партнёрам</a></nav>
+  <nav aria-label="Главная навигация"><a href="#product">Продукт</a><a href="#impact">Эффект</a><a href="clients.html">Презентация</a><a href="#pilot">Партнёрам</a></nav>
   <a class="header-cta" href="#pilot">О пилоте</a>
 </header>
 <main id="main">
@@ -28,9 +28,9 @@
     <div class="hero-copy">
       <p class="intro">Умные AR-очки для складов</p>
       <h1 id="hero-title">Склад в&nbsp;поле зрения.<br>Руки свободны.</h1>
-      <p class="lead">Сотрудник смотрит на маркировку товара. Наше ПО распознаёт QR-коды и&nbsp;текст в&nbsp;реальном времени.</p>
-      <div class="hero-actions"><a class="button button-primary" href="#product">Как это работает</a><a class="text-link" href="#pilot">Стать партнёром пилота</a></div>
-      <p class="stage"><span class="status-dot" aria-hidden="true"></span>Работающий MVP · Развиваем продукт</p>
+      <p class="lead">Переносим считывание QR-кодов и&nbsp;текста в&nbsp;умные очки, чтобы сократить отдельные действия со сканером. Проверим пользу на вашем складском процессе.</p>
+      <div class="hero-actions"><a class="button button-primary" href="#pilot">Обсудить пилот</a><a class="text-link" href="clients.html">Посмотреть презентацию</a></div>
+      <p class="stage"><span class="status-dot" aria-hidden="true"></span>MVP распознавания готов · Очки и складской пилот в разработке</p>
     </div>
     <figure class="hero-visual">
       <img src="assets/warehouse.svg" width="660" height="660" alt="Иллюстрация складской коробки с QR-кодом в рамке распознавания умных очков">
@@ -39,7 +39,7 @@
   </section>
   <section id="product" class="product-section section" aria-labelledby="product-title">
     <div class="wrap">
-      <div class="section-head"><h2 id="product-title">Меньше действий.<br>Больше внимания товару.</h2><p>Ручной сканер занимает руку и требует отдельного действия для каждого кода. Мы переносим распознавание в&nbsp;очки, чтобы встроить его в&nbsp;обычную работу сотрудника.</p></div>
+      <div class="section-head"><h2 id="product-title">Меньше действий.<br>Больше внимания товару.</h2><p>Ручной сканер занимает руку и требует отдельного действия для каждого кода. Планируем встроить распознавание в&nbsp;обычную работу сотрудника. Ниже — сценарий будущей интеграции с очками.</p></div>
       <ol class="process">
         <li><span class="step-number">1</span><h3>Надеть очки</h3><p>Камера очков передаёт видеопоток нашему программному обеспечению.</p></li>
         <li><span class="step-number">2</span><h3>Посмотреть на товар</h3><p>ПО находит в кадре QR-коды и&nbsp;текст на маркировке.</p></li>
@@ -48,6 +48,8 @@
       <div class="outcome"><p>Цель продукта — сократить время на сканирование и&nbsp;уменьшить ошибки учёта.</p><p>Эффект проверим в&nbsp;испытаниях на&nbsp;реальном складе.</p></div>
     </div>
   </section>
+<section id="impact" class="section impact-section wrap" aria-labelledby="impact-title"><div class="section-head"><div><p class="intro">Бизнес-эффект</p><h2 id="impact-title">Секунды складываются<br>в рабочие часы.</h2></div><p>Оцените потенциал на своём объёме операций. Фактическое сокращение времени замерим в пилоте. Высвобождённое время можно использовать для дополнительных операций.</p></div><form id="impact-form" class="calculator" aria-label="Расчёт потенциала рабочего времени"><div class="calc-inputs"><label>Сотрудников в процессе<input id="workers" type="number" min="1" max="100000" step="1" value="20" required></label><label>Операций на сотрудника за смену<input id="operations" type="number" min="1" max="1000000" step="1" value="1000" required></label><label>Смен на сотрудника в месяц<input id="shifts" type="number" min="1" max="62" step="1" value="22" required></label><label>Сокращение времени операции, сек<input id="seconds" type="number" min="0" max="3600" step="0.1" value="1" required></label><label>Стоимость рабочего часа, ₽<input id="hourly" type="number" min="0" max="1000000" step="1" value="450" required></label></div><div class="calc-results" aria-live="polite"><p class="calc-label">Потенциал освобождённого времени</p><output id="hours" class="calc-big">122</output><span class="calc-unit">часа в месяц</span><p class="calc-value"><output id="equivalent">55 000</output> ₽<span> эквивалента рабочего времени</span></p><p id="calc-error" hidden>Проверьте значения: они должны быть в допустимом диапазоне.</p></div><p class="calc-note">Исходные значения — условный пример, а не результаты АросПро. Расчёт: сотрудники × операции × смены × секунды ÷ 3 600. Эквивалент времени не означает автоматическое сокращение затрат на персонал. Стоимость очков, ПО и интеграции согласуем отдельно.</p><noscript><p>Для изменения расчёта включите JavaScript. При указанных исходных данных результат: 122,2 часа и 55 000 ₽.</p></noscript></form></section>
+<section class="section pilot-plan" aria-labelledby="plan-title"><div class="wrap"><div class="section-head"><h2 id="plan-title">Пилот отвечает<br>на конкретные вопросы.</h2><p>Начнём с одной повторяющейся операции. До испытания согласуем объём выборки и критерии успеха, чтобы сравнить прототип с текущим способом работы.</p></div><ol class="process"><li><span class="step-number">1</span><h3>Зафиксировать исходный процесс</h3><p>Замерим время операции, ошибки и повторные считывания. Выберем маркировки и условия проверки.</p></li><li><span class="step-number">2</span><h3>Проверить и доработать</h3><p>Испытаем прототип на сопоставимых задачах. Соберём обратную связь по удобству и исправим проблемы.</p></li><li><span class="step-number">3</span><h3>Принять решение по данным</h3><p>Повторим замеры. Подготовим выводы о пользе решения, ограничениях и условиях дальнейшего внедрения.</p></li></ol><div class="outcome"><p>Выделите ответственного за процесс.<br>Мы подготовим прототип и план испытаний.</p><p>Передачу данных в WMS, обработку видео, хранение и работу без связи согласуем в рамках пилота.</p></div></div></section>
   <section id="progress" class="progress-section wrap section" aria-labelledby="progress-title">
     <div class="progress-intro"><p class="intro">Текущая стадия</p><h2 id="progress-title">Основа уже есть.<br>Впереди — продукт.</h2><p>Мы перешли от решения на базе камер к&nbsp;формату умных очков. Следующий этап — объединить программную часть с оборудованием и&nbsp;проверить решение в&nbsp;складских условиях.</p></div>
     <div class="milestones">
@@ -62,10 +64,10 @@
     <div class="model-copy"><p class="model-main">Подписка на ПО.<br>Продажа очков.</p><p>Планируем ежемесячную оплату за каждое рабочее место с очками. Обновления и&nbsp;поддержка входят в подписку. Дополнительный источник дохода — маржа на продаже оборудования.</p><p>Собственное ПО, оборудование от китайского производителя, русскоязычный интерфейс и&nbsp;поддержка.</p></div>
   </div></section>
   <section id="pilot" class="pilot-section section wrap" aria-labelledby="pilot-title">
-    <div class="pilot-heading"><p class="intro">Следующий шаг</p><h2 id="pilot-title">Довести MVP<br>до готового продукта.</h2><p class="pilot-lead">Ищем финансирование и&nbsp;склад для испытаний. Несколько итераций разработки и&nbsp;доработки помогут проверить решение в&nbsp;реальных условиях.</p></div>
-    <div class="pilot-details"><article><h3>Инвесторам</h3><p>Финансирование направим на первую партию очков, интеграцию оборудования с&nbsp;ПО и последовательную доработку продукта.</p></article><article><h3>Складским командам</h3><p>Ищем площадку для изучения процессов и&nbsp;испытаний. Вместе выберем первый сценарий, согласуем критерии и&nbsp;проверим пользу решения.</p></article><div class="contact-slot"><a class="button button-primary" href="https://github.com/yafufig/arospro-site/issues/new" target="_blank" rel="noopener noreferrer">Обсудить проект в GitHub</a><p class="contact-note" style="margin-top:16px">Открыты к сотрудничеству с&nbsp;пилотными площадками и&nbsp;партнёрами по развитию продукта.</p></div></div>
+    <div class="pilot-heading"><p class="intro">Следующий шаг</p><h2 id="pilot-title">Выберем первый<br>складской сценарий.</h2><p class="pilot-lead">Обсудим ваш процесс, текущие показатели и&nbsp;границы пилота. Сейчас развиваем MVP в&nbsp;готовый продукт через несколько итераций доработки.</p></div>
+    <div class="pilot-details"><article><h3>Партнёрам по развитию</h3><p>Финансирование направим на первую партию очков, интеграцию оборудования с&nbsp;ПО и последовательную доработку продукта.</p></article><article><h3>Складским командам</h3><p>Ищем площадку для изучения процессов и&nbsp;испытаний. Вместе выберем первый сценарий, согласуем критерии и&nbsp;проверим пользу решения.</p></article><div class="contact-slot"><a class="button button-primary" href="https://github.com/yafufig/arospro-site/issues/new" target="_blank" rel="noopener noreferrer">Связаться с командой в GitHub</a><p class="contact-note" style="margin-top:16px">Открыты к сотрудничеству с&nbsp;пилотными площадками и&nbsp;партнёрами по развитию продукта.</p></div></div>
   </section>
-</main>
+<section class="materials wrap" aria-labelledby="materials-title"><h2 id="materials-title">Материалы о проекте</h2><div><a href="clients.html">Презентация для складских команд <span>↗</span></a><a href="vision-lab.html">Проект для Astana Hub Vision Lab <span>↗</span></a></div></section></main>
 <footer class="footer"><div class="wrap footer-inner"><a class="brand" href="#"><span>АросПро</span></a><p>Умные очки. Складские задачи.</p><span>© 2026 АросПро</span></div></footer>
-</body>
+<script src="impact.js"></script></body>
 </html>
