@@ -13,7 +13,7 @@ let renderer;
 try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'low-power' }); }
 catch { document.querySelector('#scene-hint').textContent = 'Иллюстрация концепции'; }
 
-let scanTimeout, scanning = false;
+let scanTimeout, scanning = false, scanEverPlayed = false;
 function setStep(n) { steps.forEach((step, i) => step.classList.toggle('is-current', i === n)); }
 function finishScan() {
   scanning = false; scanButton.disabled = false;
@@ -22,7 +22,7 @@ function finishScan() {
   title.textContent = 'Маркировка распознана'; detail.textContent = 'Пример: SKU 04821 · Зона А-12'; setStep(2);
 }
 scanButton.addEventListener('click', () => {
-  clearTimeout(scanTimeout); scanning = true; scanButton.disabled = true;
+  clearTimeout(scanTimeout); scanning = true; scanEverPlayed = true; scanButton.disabled = true;
   scanButton.textContent = 'Считываем маркировку…';
   readout.classList.remove('is-done'); readout.classList.add('is-reading');
   title.textContent = 'Код в поле зрения'; detail.textContent = 'Иллюстрация работы распознавания'; setStep(1);
@@ -124,7 +124,7 @@ if (renderer) {
   const shadow=new THREE.Mesh(new THREE.PlaneGeometry(5,3),new THREE.MeshBasicMaterial({map:new THREE.CanvasTexture(shadowCanvas),transparent:true,depthWrite:false}));
   shadow.rotation.x=-Math.PI/2;shadow.position.set(0,-1.34,0);scene.add(shadow);
   let targetY=-.22, targetX=.06, visible=true, dragging=false, startX=0, startY=0, startRotY=0, startRotX=0, frame=0;
-  const started=performance.now(); let introDone=motion.matches, last=started;
+  const started=performance.now(); let introDone=motion.matches, last=started, introElapsed=0, autoQueued=false;
   draw=()=>renderer.render(scene,camera);
   function resize(){const rect=stage.getBoundingClientRect();renderer.setSize(rect.width,rect.height,false);camera.aspect=rect.width/rect.height;camera.updateProjectionMatrix();draw();}
   new ResizeObserver(resize).observe(stage);
@@ -132,8 +132,11 @@ if (renderer) {
     const dt=Math.min((now-last)/1000,.05);last=now;
     model.rotation.y+= (targetY-model.rotation.y)*Math.min(1,dt*9);
     model.rotation.x+= (targetX-model.rotation.x)*Math.min(1,dt*9);
-    const intro=(now-started)/1000;
-    if(!introDone&&!motion.matches){glasses.position.y=.95+Math.sin(intro*1.5)*.055; if(intro>6)introDone=true;}
+    if(!introDone&&!motion.matches){
+      introElapsed+=dt;glasses.position.y=.95+Math.sin(introElapsed*1.5)*.055;
+      if(introElapsed>.65&&!scanEverPlayed&&!autoQueued){autoQueued=true;setTimeout(()=>{if(visible&&!document.hidden&&!scanEverPlayed)scanButton.click();},0);}
+      if(introElapsed>6)introDone=true;
+    }
     scanFrame.visible=scanning||readout.classList.contains('is-done');beam.visible=scanning;
     if(scanning)scanLine.position.y=Math.sin((now-scanStarted)*.006)*.18;
     else scanLine.position.y=0;
